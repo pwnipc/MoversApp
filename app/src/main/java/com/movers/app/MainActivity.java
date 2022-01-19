@@ -7,6 +7,7 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // Initialize Variables
    @BindView(R.id.buttonOpenDialog)
     Button mButtonOpenDialog;
+
+   // Dropdown Menu Items
+    String[] inventoryList = {"Bedsitter", "One Bedroom", "Studio", "Two Bedroom", "Other"};
+    ArrayAdapter<String> adapterInventoryList;
 
 
     @Override
