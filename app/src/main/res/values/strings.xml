@@ -5,9 +5,9 @@
     <string name="col3">Destination</string>
     <string name="col4">House Size</string>
     <string name="col5">Total Price</string>
-    <string name="row1Name">Christopher</string>
-    <string name="row1Pickup">25</string>
-    <string name="row1Destination">Khajira</string>
-    <string name="row1HouseSize">Christopher</string>
-    <string name="row1TotalPrice">25</string>
+    <string name="row1Name">Peter</string>
+    <string name="row1Pickup">Umoja</string>
+    <string name="row1Destination">Kitengela</string>
+    <string name="row1HouseSize">Bedsitter</string>
+    <string name="row1TotalPrice">2500</string>
 </resources>
