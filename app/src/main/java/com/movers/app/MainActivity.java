@@ -7,11 +7,13 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
@@ -61,6 +63,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             AutoCompleteTextView mDateAndTime = bottomSheetDialog.findViewById(R.id.autoCompleteTextViewDate);
             Button mButtonBook = bottomSheetDialog.findViewById(R.id.buttonBook);
             mDateAndTime.setInputType(InputType.TYPE_NULL);
+
+
+            adapterInventoryList = new ArrayAdapter<String>(this,R.layout.inventory_drop_down_item,inventoryList);
+            mInventorySize.setAdapter(adapterInventoryList);
+
+            mInventorySize.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    String selectedInventory = adapterView.getItemAtPosition(i).toString();
+                    Toast.makeText(MainActivity.this, "item:"+selectedInventory, Toast.LENGTH_SHORT).show();
+                }
+            });
 
             mButtonBook.setOnClickListener(new View.OnClickListener() {
                 @Override
