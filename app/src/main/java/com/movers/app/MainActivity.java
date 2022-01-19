@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         calendar.set(calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(calendar.MINUTE,minute);
 
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd HH:mm");
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd HH:mm a");
                         mAutoCompleteTextViewDate.setText(simpleDateFormat.format(calendar.getTime()));
 
 
