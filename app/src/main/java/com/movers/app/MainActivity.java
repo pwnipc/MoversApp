@@ -1,19 +1,27 @@
 package com.movers.app;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
@@ -28,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // Initialize Variables
    @BindView(R.id.buttonOpenDialog)
     Button mButtonOpenDialog;
+   private String dialogResult;
+  
 
    // Dropdown Menu Items
     String[] inventoryList = {"Bedsitter", "One Bedroom", "Studio", "Two Bedroom", "Other"};
@@ -52,50 +62,135 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view == mButtonOpenDialog){
 
             //create new BottomSheetDialog
-            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MainActivity.this);
-            bottomSheetDialog.setContentView(R.layout.choose_inventory_bottom_sheet_dialog);
-            bottomSheetDialog.setCanceledOnTouchOutside(false);
-
-
-
-            // initialize and Assign Variables
-            AutoCompleteTextView mInventorySize = bottomSheetDialog.findViewById(R.id.autoCompleteTextViewInventorySize);
-            AutoCompleteTextView mDateAndTime = bottomSheetDialog.findViewById(R.id.autoCompleteTextViewDate);
-            Button mButtonBook = bottomSheetDialog.findViewById(R.id.buttonBook);
-            mDateAndTime.setInputType(InputType.TYPE_NULL);
-
-
-            adapterInventoryList = new ArrayAdapter<String>(this,R.layout.inventory_drop_down_item,inventoryList);
-            mInventorySize.setAdapter(adapterInventoryList);
-
-            mInventorySize.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    String selectedInventory = adapterView.getItemAtPosition(i).toString();
-                    Toast.makeText(MainActivity.this, "item:"+selectedInventory, Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            mButtonBook.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Open Summary Activity Dialog
-                }
-            });
-            mDateAndTime.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    showDateDialog(mDateAndTime);
-                }
-            });
-
-
-            //show bottomSheetDialog
-            bottomSheetDialog.show();
-
+            showBookingDialog();
         }
 
         }
+
+    private void showBookingDialog() {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MainActivity.this,R.style.AppBottomSheetDialogTheme);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            setWhiteNavigationBar(bottomSheetDialog);
+        }
+        bottomSheetDialog.setContentView(R.layout.choose_inventory_bottom_sheet_dialog);
+        bottomSheetDialog.setCanceledOnTouchOutside(false);
+
+
+
+
+
+        // initialize and Assign Variables
+        AutoCompleteTextView mInventorySize = bottomSheetDialog.findViewById(R.id.autoCompleteTextViewInventorySize);
+        AutoCompleteTextView mDateAndTime = bottomSheetDialog.findViewById(R.id.autoCompleteTextViewDate);
+        Button mButtonBook = bottomSheetDialog.findViewById(R.id.buttonBook);
+        mDateAndTime.setInputType(InputType.TYPE_NULL);
+
+
+
+        adapterInventoryList = new ArrayAdapter<String>(this,R.layout.inventory_drop_down_item,inventoryList);
+        mInventorySize.setAdapter(adapterInventoryList);
+
+        mInventorySize.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedInventory = adapterView.getItemAtPosition(i).toString();
+                dialogResult = selectedInventory;
+
+
+
+
+            }
+        });
+
+        mButtonBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //openSummary method
+                openSummaryDialog();
+            }
+        });
+
+        mDateAndTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDateDialog(mDateAndTime);
+            }
+        });
+
+
+        //show bottomSheetDialog
+        bottomSheetDialog.show();
+    }
+
+    private void openSummaryDialog () {
+
+        // Open Summary Activity Dialog
+
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MainActivity.this,R.style.AppBottomSheetDialogTheme);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            setWhiteNavigationBar(bottomSheetDialog);
+        }
+        bottomSheetDialog.setContentView(R.layout.confirm_order_dialog);
+        bottomSheetDialog.setCanceledOnTouchOutside(false);
+        bottomSheetDialog.show();
+
+       TextView mTextViewSelectedInventory  = bottomSheetDialog.findViewById(R.id.textViewSelectedInventory);
+       TextView mTextViewPrice = bottomSheetDialog.findViewById(R.id.textViewPrice);
+       mTextViewSelectedInventory.setText(dialogResult);
+       if (dialogResult == "One Bedroom"){
+
+           mTextViewPrice.setText("Kes 5,500");
+
+       }else if (dialogResult == "Studio"){
+
+           mTextViewPrice.setText("Kes 7,500");
+
+       }else if (dialogResult == "Two Bedroom"){
+
+           mTextViewPrice.setText("Kes 8,500");
+
+       }else if (dialogResult == "Other"){
+
+           mTextViewPrice.setText("Kes 9,500");
+
+       }
+
+
+
+
+
+    }
+
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void setWhiteNavigationBar(BottomSheetDialog bottomSheetDialog) {
+
+        Window window = bottomSheetDialog.getWindow();
+        if (window != null) {
+            DisplayMetrics metrics = new DisplayMetrics();
+            window.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+            GradientDrawable dimDrawable = new GradientDrawable();
+            // ...customize  dim effect
+
+            GradientDrawable navigationBarDrawable = new GradientDrawable();
+            navigationBarDrawable.setShape(GradientDrawable.RECTANGLE);
+            navigationBarDrawable.setColor(Color.WHITE);
+
+            Drawable[] layers = {dimDrawable, navigationBarDrawable};
+
+            LayerDrawable windowBackground = new LayerDrawable(layers);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                windowBackground.setLayerInsetTop(1, metrics.heightPixels);
+            }
+
+            window.setBackgroundDrawable(windowBackground);
+        }
+    }
+
 
 
     private void showDateDialog(AutoCompleteTextView mAutoCompleteTextViewDate) {
