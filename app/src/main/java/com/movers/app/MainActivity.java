@@ -22,7 +22,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
@@ -39,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button mButtonOpenDialog;
    private String dialogResult;
    private String dateDialogResult;
+   private int kilometers = 20;
+   private final  int rate = 30;
+   private int subPrice = (rate * kilometers);
+   private String finalPrice;
   
 
    // Dropdown Menu Items
@@ -149,27 +152,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        TextView mTextViewSelectedInventory  = bottomSheetDialog.findViewById(R.id.textViewSelectedInventory);
        TextView mTextViewPrice = bottomSheetDialog.findViewById(R.id.textViewPrice);
        TextView mTextViewDate = bottomSheetDialog.findViewById(R.id.textViewDate);
+       TextView mFinalPrice = bottomSheetDialog.findViewById(R.id.finalPriceTextView);
+
 
        mTextViewSelectedInventory.setText(dialogResult);
        mTextViewDate.setText(dateDialogResult);
+
 
 
        if (dialogResult == "One Bedroom"){
 
            mTextViewPrice.setText("Kes 5,500");
 
+            finalPrice = String.valueOf((subPrice + 5500));
+            mFinalPrice.setText("Kes "+finalPrice);
+
+
        }else if (dialogResult == "Studio"){
 
            mTextViewPrice.setText("Kes 7,500");
+           finalPrice = String.valueOf((subPrice + 7500));
+           mFinalPrice.setText("Kes "+finalPrice);
 
        }else if (dialogResult == "Two Bedroom"){
 
            mTextViewPrice.setText("Kes 8,500");
+           finalPrice = String.valueOf((subPrice + 8500));
+           mFinalPrice.setText("Kes "+finalPrice);
 
        }else if (dialogResult == "Other"){
 
            mTextViewPrice.setText("Kes 9,500");
+           finalPrice = String.valueOf((subPrice + 9500));
+           mFinalPrice.setText("Kes "+finalPrice);
 
+       } else {
+           finalPrice = String.valueOf((subPrice + 3000));
+           mFinalPrice.setText("Kes "+finalPrice);
        }
 
 
@@ -225,10 +244,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         calendar.set(calendar.HOUR_OF_DAY,hourOfDay);
                         calendar.set(calendar.MINUTE,minute);
 
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd HH:mm a");
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, d MMM yyyy    hh:mm aaa");
                         dateDialogResult = simpleDateFormat.format(calendar.getTime());
-
-
 
 
                     }
@@ -241,4 +258,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         new DatePickerDialog(MainActivity.this,datePickerDialog,calendar.get(calendar.YEAR),calendar.get(calendar.MONTH),calendar.get(calendar.DAY_OF_MONTH)).show();
     }
+
+
+
+
 }
