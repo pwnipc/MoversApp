@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
    @BindView(R.id.buttonOpenDialog)
     Button mButtonOpenDialog;
    private String dialogResult;
+   private String dateDialogResult;
   
 
    // Dropdown Menu Items
@@ -107,7 +109,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View view) {
 
                 //openSummary method
-                openSummaryDialog();
+                if (dialogResult == null){
+                    mInventorySize.setError("Please Select Inventory Size");
+                } else if(dateDialogResult== null ) {
+
+                    mDateAndTime.setError("You have not selected date and time");
+
+
+                }else {
+                    openSummaryDialog();
+                }
             }
         });
 
@@ -137,7 +148,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
        TextView mTextViewSelectedInventory  = bottomSheetDialog.findViewById(R.id.textViewSelectedInventory);
        TextView mTextViewPrice = bottomSheetDialog.findViewById(R.id.textViewPrice);
+       TextView mTextViewDate = bottomSheetDialog.findViewById(R.id.textViewDate);
+
        mTextViewSelectedInventory.setText(dialogResult);
+       mTextViewDate.setText(dateDialogResult);
+
+
        if (dialogResult == "One Bedroom"){
 
            mTextViewPrice.setText("Kes 5,500");
@@ -161,8 +177,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
-
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -195,6 +209,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void showDateDialog(AutoCompleteTextView mAutoCompleteTextViewDate) {
 
+
         Calendar calendar = Calendar.getInstance();
         DatePickerDialog.OnDateSetListener datePickerDialog = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -211,7 +226,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         calendar.set(calendar.MINUTE,minute);
 
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd HH:mm a");
-                        mAutoCompleteTextViewDate.setText(simpleDateFormat.format(calendar.getTime()));
+                        dateDialogResult = simpleDateFormat.format(calendar.getTime());
+
 
 
 
