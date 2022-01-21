@@ -31,7 +31,7 @@
                 android:src="@drawable/outline_arrow_back_24"/>
 
             <EditText
-                android:id="@+id/search"
+                android:id="@+id/EditTextSearchValue"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"

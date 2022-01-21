@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -45,7 +44,7 @@ public class BookingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
-        search = (EditText) findViewById(R.id.search);
+        search = (EditText) findViewById(R.id.EditTextSearchValue);
         listView = (ListView) findViewById(R.id.listView);
         mic = (ImageView) findViewById(R.id.mic);
         clear = (ImageView) findViewById(R.id.clear);
