@@ -52,6 +52,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap mMap;
     EditText search;
     String place;
+    EditText mSearchValue;
     List<Address> addressList;
     private String dialogResult;
     private String dateDialogResult;
@@ -59,6 +60,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private final  int rate = 30;
     private int subPrice = (rate * kilometers);
     private String finalPrice;
+    private String mDestination;
 
 
     // Dropdown Menu Items
@@ -122,7 +124,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             e.printStackTrace();
         }
 
-        EditText mSearchValue = (EditText) findViewById(R.id.EditTextSearchValue);
+         mSearchValue = (EditText) findViewById(R.id.EditTextSearchValue);
         if (!mSearchValue.getText().toString().isEmpty()){
             View view = this.getCurrentFocus();
             if (view != null) {
@@ -218,10 +220,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         TextView mTextViewPrice = bottomSheetDialog.findViewById(R.id.textViewPrice);
         TextView mTextViewDate = bottomSheetDialog.findViewById(R.id.textViewDate);
         TextView mFinalPrice = bottomSheetDialog.findViewById(R.id.finalPriceTextView);
+        TextView mSelectedDestination = bottomSheetDialog.findViewById(R.id.textViewDestination);
 
 
         mTextViewSelectedInventory.setText(dialogResult);
         mTextViewDate.setText(dateDialogResult);
+        mSelectedDestination.setText(mSearchValue.getText().toString().trim());
 
 
 
