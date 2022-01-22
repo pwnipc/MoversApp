@@ -37,6 +37,8 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
     implementation platform('com.google.firebase:firebase-bom:29.0.3')
     implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.google.android.gms:play-services-plus:17.0.0'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'androidx.cardview:cardview:1.0.0'
