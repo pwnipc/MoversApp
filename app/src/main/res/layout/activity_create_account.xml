@@ -89,7 +89,7 @@ android:layout_below="@+id/createAccountName"
         android:backgroundTint="@color/green"
         android:id="@+id/loginBtn"
         android:layout_below="@id/confirmPasswordEditText"
-        android:text="Login"
+        android:text="Sign Up"
         android:layout_centerHorizontal="true"
         android:padding="15dp"
         />
