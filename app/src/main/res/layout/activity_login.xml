@@ -16,7 +16,7 @@
         android:src="@drawable/store" />
 
     <EditText
-        android:id="@+id/editTxtName"
+        android:id="@+id/loginEmailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -25,48 +25,47 @@
         android:layout_marginBottom="40dp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
-        android:hint="Name"
+        android:hint="Enter Email"
         android:textColorHint="@color/black"
-        android:paddingLeft="20dp"
-
-
-        android:translationZ="180dp" />
+        android:padding="5dp"
+        />
 
     <EditText
-        android:id="@+id/editTxtAddress"
+        android:id="@+id/loginPasswordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTxtName"
+        android:layout_below="@+id/loginEmailEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:layout_marginBottom="40dp"
-        android:hint="Address"
+        android:hint="Enter Password"
         android:textColorHint="@color/black"
         android:background="@color/white"
         android:backgroundTint="@color/white"
+        android:inputType="textPassword"
+        android:padding="5dp"
         />
 
-
-    <EditText
-        android:id="@+id/editTxtPhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editTxtAddress"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginBottom="40dp"
-        android:textColorHint="@color/white"
-        android:hint="Phone Number" />
-
     <Button
-        android:id="@+id/btnBuyFormSubmit"
+        android:id="@+id/loginBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTxtPhone"
-        android:text="Submit"
+        android:layout_below="@id/loginPasswordEditText"
+        android:text="Login"
         android:layout_centerHorizontal="true"/>
+    <TextView
+        android:id="@+id/registerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="Don't have an account? Sign up here!"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/loginBtn"/>
 
 
 
