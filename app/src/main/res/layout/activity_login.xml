@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="@color/"
+    android:background="@color/yellow"
     >
 
     <ImageView
@@ -20,12 +20,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:hint="Name"
-        android:textColorHint="@color/white"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:layout_marginBottom="40dp"
-        />
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:hint="Name"
+        android:textColorHint="@color/black"
+        android:paddingLeft="20dp"
+
+
+        android:translationZ="180dp" />
 
     <EditText
         android:id="@+id/editTxtAddress"
@@ -36,8 +41,12 @@
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:layout_marginBottom="40dp"
-        android:hint="Adress"
-        android:textColorHint="@color/white"/>
+        android:hint="Address"
+        android:textColorHint="@color/black"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        />
+
 
     <EditText
         android:id="@+id/editTxtPhone"
@@ -59,12 +68,6 @@
         android:text="Submit"
         android:layout_centerHorizontal="true"/>
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/store"
-        android:layout_below="@+id/imgViewTop"
-        android:scaleType="fitEnd"/>
+
 
 </RelativeLayout>
