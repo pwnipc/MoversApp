@@ -87,14 +87,14 @@ android:layout_below="@+id/createAccountName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/green"
-        android:id="@+id/loginBtn"
+        android:id="@+id/createBtn"
         android:layout_below="@id/confirmPasswordEditText"
         android:text="Sign Up"
         android:layout_centerHorizontal="true"
         android:padding="15dp"
         />
     <TextView
-        android:id="@+id/registerTextView"
+        android:id="@+id/loginTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
