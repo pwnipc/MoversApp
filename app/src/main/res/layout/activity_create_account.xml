@@ -104,7 +104,7 @@ android:layout_below="@+id/createAccountName"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_below="@+id/loginBtn"/>
+        android:layout_below="@+id/createBtn"/>
 
 
 
