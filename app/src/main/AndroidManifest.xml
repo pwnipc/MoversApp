@@ -3,13 +3,14 @@
     package="com.movers.app">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
         <activity
+
             android:name=".CreateAccountActivity"
             android:exported="false" />
         <activity
@@ -19,6 +20,9 @@
             android:name=".DashboardActivity"
             android:exported="false" />
         <activity
+            android:name=".MapsActivity"
+            android:exported="true" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
@@ -27,6 +31,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".BookingActivity"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+        </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBvkWPOy49fuHFIpSSL4jpAeWmKz-pkvkQ"/>
     </application>
 
 </manifest>
