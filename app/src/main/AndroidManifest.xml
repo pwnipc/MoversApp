@@ -10,7 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
         <activity
+            android:name=".SplashScreen"
+            android:exported="true">
+                      <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+  </activity>
+             
+<activity
             android:name=".CreateAccountActivity"
             android:exported="true" />
 
@@ -18,25 +27,24 @@
             android:name=".DashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".MapsActivity"
-            android:exported="true" />
-        <activity
             android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
         </activity>
+        <activity
+            android:name=".MapsActivity"
+            android:exported="false">
+        </activity>
+    
         <activity
             android:name=".BookingActivity"
-            android:exported="false" >
-        </activity>
-        
+            android:exported="false"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBvkWPOy49fuHFIpSSL4jpAeWmKz-pkvkQ"/>
+            android:value="AIzaSyBvkWPOy49fuHFIpSSL4jpAeWmKz-pkvkQ" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
