@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@color/yellow"
+    >
+
+    <ImageView
+        android:id="@+id/imgViewTop"
+        android:layout_width="107dp"
+        android:layout_height="103dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+
+        android:layout_marginBottom="201dp"
+        android:src="@drawable/login" />
+
+    <EditText
+        android:id="@+id/createAccountName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:layout_below="@id/imgViewTop"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="-140dp"
+
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:hint="Enter Name"
+        android:textColorHint="@color/black"
+        android:padding="10dp"
+        />
+    <EditText
+        android:id="@+id/createAccountEmailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:layout_below="@+id/createAccountName"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="40dp"
+        android:layout_centerInParent="true"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:hint="Enter Email"
+        android:textColorHint="@color/black"
+        android:padding="10dp"
+        />
+
+    <EditText
+        android:id="@+id/createAccountPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createAccountEmailEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="40dp"
+        android:hint="Enter Password"
+        android:textColorHint="@color/black"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        />
+    <EditText
+        android:id="@+id/confirmPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createAccountPasswordEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="40dp"
+        android:hint="Confirm Password"
+        android:textColorHint="@color/black"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/green"
+        android:id="@+id/createBtn"
+        android:layout_below="@id/confirmPasswordEditText"
+        android:text="Sign Up"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp"
+        />
+    <TextView
+        android:id="@+id/loginTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="Already have an account? Log in here!"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/createBtn"/>
+
+
+
+</RelativeLayout>

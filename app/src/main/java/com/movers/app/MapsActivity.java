@@ -33,6 +33,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -43,6 +44,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -64,7 +66,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private int subPrice = (rate * kilometers);
     private String finalPrice;
     private String mDestination;
-
+    private ImageButton logoutBtn;
 
     // Dropdown Menu Items
     String[] inventoryList = {"Bedsitter", "One Bedroom", "Studio", "Two Bedroom", "Other"};
@@ -82,7 +84,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
         search = (EditText) findViewById(R.id.EditTextSearchValue);
-
+        logoutBtn = findViewById(R.id.logoutBtn);
 
 
         // get address from previous activity
@@ -100,6 +102,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 intent.putExtra("searchValue", search.getText().toString());
                 startActivity(intent);
                 overridePendingTransition(0, 0);
+
+
+
+            }
+        });
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logout();
+                Intent intent = new Intent(MapsActivity.this, LoginActivity.class);
+                startActivity(intent);
+
 
 
 
@@ -355,8 +369,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         new DatePickerDialog(MapsActivity.this,datePickerDialog,calendar.get(calendar.YEAR),calendar.get(calendar.MONTH),calendar.get(calendar.DAY_OF_MONTH)).show();
     }
 
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(MapsActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+
 
 
     public void cancelOrder(View view) {
     }
+
 }
