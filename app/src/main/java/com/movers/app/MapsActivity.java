@@ -8,11 +8,13 @@ import androidx.core.app.NotificationManagerCompat;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.Notification;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
@@ -245,6 +247,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         .build();
 
                 NotificationManagerCompat.notify(1,notification);
+                Dialog dialog = new Dialog(MapsActivity.this);
+                dialog.setContentView(R.layout.success_dialog);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable( Color.TRANSPARENT));
+                dialog.show();
 
             }
         });
