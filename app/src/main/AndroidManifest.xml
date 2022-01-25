@@ -12,10 +12,8 @@
         <activity
 
             android:name=".CreateAccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true" />
+
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
@@ -35,10 +33,7 @@
             android:name=".BookingActivity"
             android:exported="false" >
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+        
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBvkWPOy49fuHFIpSSL4jpAeWmKz-pkvkQ"/>

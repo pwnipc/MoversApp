@@ -48,7 +48,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
 
         if (view == mLoginTextView) {
-            Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
+            Intent intent = new Intent(CreateAccountActivity.this, MapsActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
@@ -65,6 +65,11 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         final String email = createAccountEmailEditText.getText().toString().trim();
         String password = createAccountPasswordEditText.getText().toString().trim();
         String confirmPassword = confirmPasswordEditText.getText().toString().trim();
+
+        boolean validEmail = isValidEmail(email);
+        boolean validName = isValidName(name);
+        boolean validPassword = isValidPassword(password, confirmPassword);
+        if (!validEmail || !validName || !validPassword) return;
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
@@ -84,7 +89,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
+                    Intent intent = new Intent(CreateAccountActivity.this, MapsActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
@@ -106,6 +111,34 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
         }
+    }
+    private boolean isValidEmail(String email) {
+        boolean isGoodEmail =
+                (email != null && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if (!isGoodEmail) {
+            createAccountEmailEditText.setError("Please enter a valid email address");
+            return false;
+        }
+        return isGoodEmail;
+    }
+
+    private boolean isValidName(String name) {
+        if (name.equals("")) {
+            createAccountName.setError("Please enter your name");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidPassword(String password, String confirmPassword) {
+        if (password.length() < 6) {
+            createAccountPasswordEditText.setError("Please create a password containing at least 6 characters");
+            return false;
+        } else if (!password.equals(confirmPassword)) {
+            createAccountPasswordEditText.setError("Passwords do not match");
+            return false;
+        }
+        return true;
     }
 
 
