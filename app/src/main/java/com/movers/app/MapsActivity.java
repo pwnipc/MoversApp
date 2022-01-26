@@ -371,8 +371,5 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void cancelOrder(View view) {
     }
 
-    public void closeDialog(){
 
-
-    }
 }
