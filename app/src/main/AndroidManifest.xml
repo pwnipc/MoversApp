@@ -11,22 +11,33 @@
         android:theme="@style/Theme.MoversApp">
         <activity
             android:name=".SplashScreen"
-            android:exported="true" >
-            <intent-filter>
+            android:exported="true">
+                      <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+  </activity>
+             
+<activity
+            android:name=".CreateAccountActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false">
         </activity>
         <activity
             android:name=".MapsActivity"
-            android:exported="true">
-
+            android:exported="false">
         </activity>
+    
         <activity
             android:name=".BookingActivity"
             android:exported="false"></activity>
-
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

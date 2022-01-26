@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "618884666988",
+    "firebase_url": "https://com-movers-app-default-rtdb.firebaseio.com",
     "project_id": "com-movers-app",
     "storage_bucket": "com-movers-app.appspot.com"
   },
