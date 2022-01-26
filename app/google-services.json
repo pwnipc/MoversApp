@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "618884666988",
+    "firebase_url": "https://com-movers-app-default-rtdb.firebaseio.com",
+    "project_id": "com-movers-app",
+    "storage_bucket": "com-movers-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618884666988:android:daa7467b7dfd167a65aa49",
+        "android_client_info": {
+          "package_name": "com.movers.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618884666988-rfmlfjs5njin2k333anum07fvvt2n6v7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyEy10RcAxAbJ5s0-BjpDikB7CyYFNhEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618884666988-rfmlfjs5njin2k333anum07fvvt2n6v7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
