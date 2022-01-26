@@ -49,7 +49,7 @@ public class SplashScreen extends AppCompatActivity {
 
                 Intent intent = new Intent();
                 intent.setClass(SplashScreen.this,
-                        MapsActivity.class);
+                        LoginActivity.class);
 
                 startActivity(intent);
                finish();
