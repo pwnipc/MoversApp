@@ -5,28 +5,28 @@
     android:background="@color/lgray"
 
 
-    tools:context=".KitchenActivity">
+    tools:context=".LivingRoomActivity">
 
     <ImageView
-        android:id="@+id/kichenImageView"
+        android:id="@+id/livingRoomImageView"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/ginger"
+        android:src="@drawable/couch"
         android:layout_marginLeft="80dp"
         android:layout_centerHorizontal="true"/>
 
     <TextView
-       android:id="@+id/promptTextView"
+        android:id="@+id/livingRoomPromptTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please select the items in your kitchen:"
+        android:text="Please select the items in your living room:"
         android:textSize="25sp"
         android:textStyle="bold"
         android:textColor="@color/yellow"
         android:layout_marginLeft="30dp"
 
-        android:layout_below="@+id/kichenImageView"
+        android:layout_below="@+id/livingRoomImageView"
 
         />
 
@@ -38,63 +38,63 @@
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
-        android:layout_below="@id/promptTextView"
+        android:layout_below="@id/livingRoomPromptTextView"
 
         >
 
         <CheckBox
-            android:id="@+id/refrigeratorCheckBox"
+            android:id="@+id/tvCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:checked="false"
             android:padding="20dp"
-            android:text="Refrigerator"
+            android:text="Television"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <CheckBox
-            android:id="@+id/cookerCheckBox"
+            android:id="@+id/sofaCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:checked="false"
             android:padding="20dp"
-            android:text="Cooker"
+            android:text="Sofa Set"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <CheckBox
-            android:id="@+id/dishWasherCheckBox"
+            android:id="@+id/tableCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:checked="false"
             android:padding="20dp"
-            android:text="Dish Washer"
+            android:text="Table"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <CheckBox
-            android:id="@+id/microwaveCheckBox"
+            android:id="@+id/wooferCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:checked="false"
             android:padding="20dp"
-            android:text="Microwave"
+            android:text="Woofer"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-       <Button
-           android:id="@+id/submitKitchenButton"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Submit"
-           android:background="@color/green"
-           android:backgroundTint="@color/green"
-           android:layout_marginLeft="45dp"
-           />
+        <Button
+            android:id="@+id/submitLivingRoomButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:background="@color/green"
+            android:backgroundTint="@color/green"
+            android:layout_marginLeft="45dp"
+            />
     </LinearLayout>
 
 </RelativeLayout>
