@@ -35,5 +35,22 @@
             android:padding="5dp"
             android:textColor="#7b7b7b"/>
 
+<!--        <androidx.appcompat.widget.AppCompatEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:id="@+id/logoutBtn"-->
+<!--            android:drawableEnd="@drawable/ic_baseline_exit_to_app_24"-->
+<!--            android:layout_marginRight="30dp"/>-->
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="logout"
+    android:src="@drawable/ic_baseline_exit_to_app_24"
+android:drawableEnd="@drawable/ic_baseline_exit_to_app_24"
+    android:id="@+id/logoutBtn"
+    android:layout_marginLeft="310dp"
+    android:layout_marginTop="8dp"
+    android:background="@color/white"
+    />
     </androidx.cardview.widget.CardView>
 </RelativeLayout>
