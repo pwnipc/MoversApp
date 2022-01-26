@@ -10,10 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
         <activity
-
+            android:name=".KitchenActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateAccountActivity"
             android:exported="true" />
-
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
@@ -31,12 +32,11 @@
         </activity>
         <activity
             android:name=".BookingActivity"
-            android:exported="false" >
-        </activity>
-        
+            android:exported="false"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBvkWPOy49fuHFIpSSL4jpAeWmKz-pkvkQ"/>
+            android:value="AIzaSyBvkWPOy49fuHFIpSSL4jpAeWmKz-pkvkQ" />
     </application>
 
 </manifest>
