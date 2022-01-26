@@ -50,6 +50,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback{
@@ -65,8 +66,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private final  int rate = 30;
     private int subPrice = (rate * kilometers);
     private String finalPrice;
+    Dialog dialog;
     private String mDestination;
     private ImageButton logoutBtn;
+
 
     // Dropdown Menu Items
     String[] inventoryList = {"Bedsitter", "One Bedroom", "Studio", "Two Bedroom", "Other"};
@@ -248,11 +251,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
 
+
+
+
         mConfirmOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bottomSheetDialog.hide();
-                Notification notification = new NotificationCompat.Builder(MapsActivity.this,App.CHANNEL_ID1)
+                Button mSuccessOK = bottomSheetDialog.findViewById(R.id.buttonSuccess);
+                        Notification notification = new NotificationCompat.Builder(MapsActivity.this,App.CHANNEL_ID1)
                         .setSmallIcon(R.drawable.sticker_check_outline)
                         .setContentTitle("Order Placed")
                         .setContentText("You just made a new Order. Click to view your Orders!")
@@ -261,13 +268,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         .build();
 
                 NotificationManagerCompat.notify(1,notification);
-                Dialog dialog = new Dialog(MapsActivity.this);
+                Dialog dialog= new Dialog(MapsActivity.this);
                 dialog.setContentView(R.layout.success_dialog);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable( Color.TRANSPARENT));
+
+
                 dialog.show();
 
             }
+
+
         });
+
 
 
         mTextViewSelectedInventory.setText(dialogResult);
