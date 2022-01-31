@@ -21,7 +21,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <Button
-            android:id="@+id/buttonBook2"
+            android:id="@+id/ButtonCancelOrder"
             android:layout_width="125dp"
             android:layout_height="48dp"
             android:layout_marginStart="56dp"
@@ -30,12 +30,13 @@
             android:background="@drawable/button_submit"
             android:padding="10dp"
             android:text="Cancel"
+            android:onClick="cancelOrder"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textStyle="bold"
             app:backgroundTint="#F44336"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/buttonBook"
+            app:layout_constraintEnd_toStartOf="@+id/ConfirmButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -194,7 +195,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <Button
-            android:id="@+id/buttonBook"
+            android:id="@+id/ConfirmButton"
             android:layout_width="125dp"
             android:layout_height="48dp"
             android:layout_marginStart="49dp"
@@ -203,6 +204,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/button_submit"
             android:padding="10dp"
+            android:onClick="confirmOrder"
             android:text="Confirm"
             android:textAllCaps="false"
             android:textColor="#ffffff"
@@ -210,7 +212,7 @@
             app:backgroundTint="#098f5a"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buttonBook2"
+            app:layout_constraintStart_toEndOf="@+id/ButtonCancelOrder"
             app:layout_constraintTop_toBottomOf="@+id/finalPriceTextView" />
 
         <ImageView

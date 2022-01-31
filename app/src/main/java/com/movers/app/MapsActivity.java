@@ -3,13 +3,18 @@ package com.movers.app;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.Notification;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
@@ -31,7 +36,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -42,7 +46,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.text.BreakIterator;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -51,6 +54,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback{
+    private NotificationManagerCompat NotificationManagerCompat;
     private GoogleMap mMap;
     EditText search;
     String place;
@@ -58,16 +62,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     List<Address> addressList;
     private String dialogResult;
     private String dateDialogResult;
-    private int kilometers = 20;
+    private final int kilometers = 20;
     private final  int rate = 30;
     private int subPrice = (rate * kilometers);
     private String finalPrice;
+    Dialog dialog;
     private String mDestination;
     private ImageButton logoutBtn;
+
 
     // Dropdown Menu Items
     String[] inventoryList = {"Bedsitter", "One Bedroom", "Studio", "Two Bedroom", "Other"};
     ArrayAdapter<String> adapterInventoryList;
+
 
 
     @Override
@@ -76,6 +83,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_maps);
 
         ButterKnife.bind(this);
+        NotificationManagerCompat = NotificationManagerCompat.from(this);
 
 
         search = (EditText) findViewById(R.id.EditTextSearchValue);
@@ -168,7 +176,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // initialize and Assign Variables
         AutoCompleteTextView mInventorySize = bottomSheetDialog.findViewById(R.id.autoCompleteTextViewInventorySize);
         AutoCompleteTextView mDateAndTime = bottomSheetDialog.findViewById(R.id.autoCompleteTextViewDate);
-        Button mButtonBook = bottomSheetDialog.findViewById(R.id.buttonBook);
+        Button mButtonBook = bottomSheetDialog.findViewById(R.id.ConfirmButton);
         mDateAndTime.setInputType(InputType.TYPE_NULL);
 
 
@@ -202,6 +210,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 }else {
                     openSummaryDialog();
+                    bottomSheetDialog.dismiss();
                 }
             }
         });
@@ -222,6 +231,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Open Summary Activity Dialog
 
+
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MapsActivity.this,R.style.AppBottomSheetDialogTheme);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             setWhiteNavigationBar(bottomSheetDialog);
@@ -235,6 +245,40 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         TextView mTextViewDate = bottomSheetDialog.findViewById(R.id.textViewDate);
         TextView mFinalPrice = bottomSheetDialog.findViewById(R.id.finalPriceTextView);
         TextView mSelectedDestination = bottomSheetDialog.findViewById(R.id.textViewDestination);
+        Button mConfirmOrder = bottomSheetDialog.findViewById(R.id.ConfirmButton);
+        Button mCancelOrder = bottomSheetDialog.findViewById(R.id.ButtonCancelOrder);
+
+
+
+
+
+
+
+        mConfirmOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetDialog.hide();
+                Button mSuccessOK = bottomSheetDialog.findViewById(R.id.buttonSuccess);
+                        Notification notification = new NotificationCompat.Builder(MapsActivity.this,App.CHANNEL_ID1)
+                        .setSmallIcon(R.drawable.sticker_check_outline)
+                        .setContentTitle("Order Placed")
+                        .setContentText("You just made a new Order. Click to view your Orders!")
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                        .build();
+
+                NotificationManagerCompat.notify(1,notification);
+                Dialog dialog= new Dialog(MapsActivity.this);
+                dialog.setContentView(R.layout.success_dialog);
+
+
+                dialog.show();
+
+            }
+
+
+        });
+
 
 
         mTextViewSelectedInventory.setText(dialogResult);
@@ -342,6 +386,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
+    }
+
+
+
+
+    public void cancelOrder(View view) {
     }
 
 }

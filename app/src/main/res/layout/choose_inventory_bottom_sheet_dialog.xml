@@ -58,7 +58,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/buttonBook"
+        android:id="@+id/ConfirmButton"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_marginStart="30dp"
