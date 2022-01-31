@@ -67,7 +67,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_submit"
         android:padding="10dp"
-        android:text="Book a Mover"
+        android:text="Submit"
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textStyle="bold"
