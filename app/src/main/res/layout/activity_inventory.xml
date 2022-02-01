@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewKitchen"
-        android:paddingBottom="2dp"
         android:layout_centerHorizontal="true"
+        android:paddingBottom="2dp"
         android:text="Check Inventory" />
 </RelativeLayout>

@@ -3,7 +3,9 @@ package com.movers.app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,6 +25,8 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
     @BindView(R.id.buttonCheckInventory)
     Button inventory;
 
+    String KitchenCost, BedroomCost, LivingRoomCost;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +35,28 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
         mImageViewBedroom.setOnClickListener(this);
         mImageViewKitchen.setOnClickListener(this);
         mImageViewLivingRoom.setOnClickListener(this);
+        inventory.setOnClickListener(this);
 
-//        Intent intent = getIntent();
-//        int kitchenCost = Integer.parseInt(intent.getStringExtra("KitchenCost"));
-//        int BedroomCost = Integer.parseInt(intent.getStringExtra("BedroomCost"));
-//        int LivingRoomCost = Integer.parseInt(intent.getStringExtra("LivingRoomCost"));
+
+        Intent intent = getIntent();
+
+        if(intent.getStringExtra("livingActivity") != null){
+            if(intent.getStringExtra("livingActivity").equals("LivingRoom")){
+                LivingRoomCost = intent.getStringExtra("LivingRoomCost");
+            }
+        }
+
+        if(intent.getStringExtra("KitchenActivity") != null){
+            if(intent.getStringExtra("KitchenActivity").equals("KitchenRoom")){
+                KitchenCost = intent.getStringExtra("KitchenRoomCost");
+            }
+        }
+        if(intent.getStringExtra("BedroomActivity") != null){
+            if(intent.getStringExtra("BedroomActivity").equals("Bedroom")){
+                BedroomCost = intent.getStringExtra("BedroomCost");
+            }
+        }
+
 
     }
 
@@ -56,10 +77,14 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
             startActivity(intent);
         }
         if(v == inventory){
-            //To summary Activity
-            Toast.makeText(Inventory.this,"Still in Progress",Toast.LENGTH_LONG).show();
+            if(LivingRoomCost != null && BedroomCost != null && KitchenCost != null){
+                //To the summary activity
+                Toast.makeText(Inventory.this,"Still in Progress",Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(Inventory.this,"Please select inventory",Toast.LENGTH_LONG).show();
+            }
+
         }
     }
 
-    
 }
