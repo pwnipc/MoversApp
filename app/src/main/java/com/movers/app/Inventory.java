@@ -79,12 +79,18 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
         if(v == inventory){
             if(LivingRoomCost != null && BedroomCost != null && KitchenCost != null){
                 //To the summary activity
+               openSummary();
                 Toast.makeText(Inventory.this,"Still in Progress",Toast.LENGTH_LONG).show();
             }else{
                 Toast.makeText(Inventory.this,"Please select inventory",Toast.LENGTH_LONG).show();
             }
 
         }
+    }
+
+    private void openSummary() {
+        Intent intent = new Intent(Inventory.this,SummaryActivity.class);
+        startActivity(intent);
     }
 
 }
