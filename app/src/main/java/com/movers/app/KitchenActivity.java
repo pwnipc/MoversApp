@@ -37,22 +37,31 @@ public class KitchenActivity extends AppCompatActivity {
                 if(refrigerator.isChecked()){
                     result.append("Refrigerator : 1000");
                     totalCost += 1000;
-                }else if(cooker.isChecked()){
+                }if(cooker.isChecked()){
                     result.append("Cooker : 500");
                     totalCost += 500;
-                }else if(dishwasher.isChecked()){
+                }if(dishwasher.isChecked()){
                     result.append("Dishwasher : 500");
                     totalCost += 500;
-                }else if (microwave.isChecked()){
+                }if (microwave.isChecked()){
                     result.append("Microwave : 500");
                     totalCost += 500;
-                }else if(!refrigerator.isChecked() && !cooker.isChecked() && !dishwasher.isChecked() && !microwave.isChecked()){
-                    Toast.makeText(KitchenActivity.this,"Please select an item to move",Toast.LENGTH_LONG).show();
+                } if(!refrigerator.isChecked() && !cooker.isChecked() && !dishwasher.isChecked() && !microwave.isChecked()){
+                    Toast.makeText(KitchenActivity.this, "Nothing added from the Kitchen" ,Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(KitchenActivity.this, Inventory.class);
+                    String activity = "KitchenRoom";
+                    intent.putExtra("KitchenRoomCost",String.valueOf(totalCost));
+                    intent.putExtra("KitchenActivity",activity);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(KitchenActivity.this, "Kitchen inventory added successfully" ,Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(KitchenActivity.this, Inventory.class);
+                    String activity = "KitchenRoom";
+                    intent.putExtra("KitchenRoomCost",String.valueOf(totalCost));
+                    intent.putExtra("KitchenActivity",activity);
+                    startActivity(intent);
                 }
-                Toast.makeText(KitchenActivity.this, "Inventory added successfully",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(KitchenActivity.this, Inventory.class);
-                intent.putExtra("KitchenCost",totalCost);
-                startActivity(intent);
+
 
             }
         });

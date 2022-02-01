@@ -37,23 +37,30 @@ public class BedroomActivity extends AppCompatActivity {
                 if(bed.isChecked()){
                     result.append("bed : 1000");
                     totalCost += 1000;
-                }else if(drawer.isChecked()){
+                }if(drawer.isChecked()){
                     result.append("drawer : 500");
                     totalCost += 500;
-                }else if(babyCot.isChecked()){
+                }if(babyCot.isChecked()){
                     result.append("Baby Cot : 500");
                     totalCost += 500;
-                }else if (chair.isChecked()){
+                }if (chair.isChecked()){
                     result.append("Microwave : 500");
                     totalCost += 500;
-                }else if(!bed.isChecked() && !drawer.isChecked() && !babyCot.isChecked() && !chair.isChecked()){
-                    Toast.makeText(BedroomActivity.this,"Please select an item to move",Toast.LENGTH_LONG).show();
+                } if(!bed.isChecked() && !drawer.isChecked() && !babyCot.isChecked() && !chair.isChecked()){
+                    Toast.makeText(BedroomActivity.this, "Nothing added from the Bedroom" ,Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(BedroomActivity.this, Inventory.class);
+                    String activity = "Bedroom";
+                    intent.putExtra("BedroomCost",String.valueOf(totalCost));
+                    intent.putExtra("BedroomActivity",activity);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(BedroomActivity.this, "Bedroom inventory added successfully" ,Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(BedroomActivity.this, Inventory.class);
+                    String activity = "Bedroom";
+                    intent.putExtra("BedroomCost",String.valueOf(totalCost));
+                    intent.putExtra("BedroomActivity",activity);
+                    startActivity(intent);
                 }
-                Toast.makeText(BedroomActivity.this, "Inventory added successfully",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(BedroomActivity.this, Inventory.class);
-                intent.putExtra("BedroomCost",totalCost);
-                startActivity(intent);
-
             }
         });
     }
