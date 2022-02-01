@@ -1,9 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SummaryActivity">
+    tools:context=".SummaryActivity"
+    android:background="@drawable/backgroun">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:src="@drawable/doc_logo"
+
+        />
+    <TextView
+        android:id="@+id/orderSumamry"
+        style="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+        android:text="Order Summary"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+       />
+
+    <TextView
+
+        android:id="@+id/movingCompanyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/orderSumamry"
+        android:layout_marginLeft="110dp"
+        android:text="Moving Company:"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:layout_below="@+id/orderSumamry"
+
+        android:id="@+id/movingCompanyValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DHL"
+        android:layout_marginBottom="10dp"
+        android:textSize="16sp"
+        android:layout_marginLeft="250dp"
+        android:textColor="@color/white"
+       />
+        <TextView
+
+            android:id="@+id/pickUpDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movingCompanyTitle"
+            android:text="Pick Up Date:"
+            android:layout_marginLeft="110dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/pickUpDateValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_below="@+id/movingCompanyTitle"
+        android:layout_marginLeft="250dp"
+        android:layout_marginBottom="10dp"
+        android:text="24th July 2022"
+        android:textColor="@color/white"
+        />
+
+    <TextView
+        android:id="@+id/pickUpTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pickUpDateTitle"
+        android:layout_marginLeft="110dp"
+        android:layout_marginBottom="10dp"
+        android:text="Pick Up Time:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/pickUpTimeValue"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/pickUpDateTitle"
+            android:layout_height="wrap_content"
+            android:text="03:40"
+            android:textSize="16sp"
+            android:layout_marginLeft="250dp"
+            android:textColor="@color/white"
+            />
+    <TextView
+        android:id="@+id/pickUpLocationTitle"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/pickUpTimeTitle"
+        android:layout_height="wrap_content"
+        android:text="Pick Up Location:"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="110dp"
+        android:textColor="@color/white"
+        />
+    <TextView
+        android:id="@+id/pickUpLocationValue"
+        android:layout_width="wrap_content"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        android:text="Imara Daima"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="250dp"
+        android:layout_below="@+id/pickUpTimeTitle"
+        android:textColor="@color/white"
+        />
+    <TextView
+        android:id="@+id/pickUpDestinationTitle"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/pickUpLocationTitle"
+        android:layout_height="wrap_content"
+        android:text="Pick Up Location:"
+        android:textSize="16sp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
+    <TextView
+        android:id="@+id/pickUpDestinationValue"
+        android:layout_width="wrap_content"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        android:text="Umoja"
+        android:layout_marginLeft="250dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/pickUpLocationTitle"
+        android:textColor="@color/white"
+        />
+    <TextView
+        android:id="@+id/totalCostTitle"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/pickUpDestinationTitle"
+        android:layout_height="wrap_content"
+        android:text="Total:"
+        android:textSize="16sp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
+    <TextView
+        android:id="@+id/totalCostValue"
+        android:layout_width="wrap_content"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        android:text="ksh 2000"
+        android:layout_marginLeft="250dp"
+        android:layout_below="@+id/pickUpDestinationTitle"
+        android:layout_marginBottom="10dp"
+       android:textColor="@color/white"
+        />
+
+    <Button
+        android:layout_centerHorizontal="true"
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Home"
+        android:layout_below="@+id/totalCostTitle"
+
+        />
+</RelativeLayout>
