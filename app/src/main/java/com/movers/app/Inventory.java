@@ -32,10 +32,10 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
         mImageViewKitchen.setOnClickListener(this);
         mImageViewLivingRoom.setOnClickListener(this);
 
-        Intent intent = getIntent();
-        int kitchenCost = Integer.parseInt(intent.getStringExtra("KitchenCost"));
-        int BedroomCost = Integer.parseInt(intent.getStringExtra("BedroomCost"));
-        int LivingRoomCost = Integer.parseInt(intent.getStringExtra("LivingRoomCost"));
+//        Intent intent = getIntent();
+//        int kitchenCost = Integer.parseInt(intent.getStringExtra("KitchenCost"));
+//        int BedroomCost = Integer.parseInt(intent.getStringExtra("BedroomCost"));
+//        int LivingRoomCost = Integer.parseInt(intent.getStringExtra("LivingRoomCost"));
 
     }
 
@@ -60,4 +60,6 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
             Toast.makeText(Inventory.this,"Still in Progress",Toast.LENGTH_LONG).show();
         }
     }
+
+    
 }
