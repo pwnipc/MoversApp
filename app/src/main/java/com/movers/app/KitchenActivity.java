@@ -54,7 +54,7 @@ public class KitchenActivity extends AppCompatActivity {
                     intent.putExtra("KitchenActivity",activity);
                     startActivity(intent);
                 }else{
-                    Toast.makeText(KitchenActivity.this, "Inventory added successfully" ,Toast.LENGTH_LONG).show();
+                    Toast.makeText(KitchenActivity.this, "Kitchen inventory added successfully" ,Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(KitchenActivity.this, Inventory.class);
                     String activity = "KitchenRoom";
                     intent.putExtra("KitchenRoomCost",String.valueOf(totalCost));

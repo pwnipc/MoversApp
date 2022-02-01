@@ -54,7 +54,7 @@ public class BedroomActivity extends AppCompatActivity {
                     intent.putExtra("BedroomActivity",activity);
                     startActivity(intent);
                 }else{
-                    Toast.makeText(BedroomActivity.this, "Inventory added successfully" ,Toast.LENGTH_LONG).show();
+                    Toast.makeText(BedroomActivity.this, "Bedroom inventory added successfully" ,Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(BedroomActivity.this, Inventory.class);
                     String activity = "Bedroom";
                     intent.putExtra("BedroomCost",String.valueOf(totalCost));
