@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
         <activity
-            android:name=".MoversActivity"
+            android:name=".SplashScreen"
             android:exported="false" />
         <activity
             android:name=".SummaryActivity"
@@ -19,7 +19,7 @@
             android:name=".Inventory"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".MoversActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
