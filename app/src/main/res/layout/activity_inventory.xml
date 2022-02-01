@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Inventory">
+
+    <ImageView
+        android:id="@+id/imageViewBedroom"
+        android:layout_width="250dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        app:srcCompat="@drawable/bedroom" />
+    <TextView
+        android:id="@+id/textViewBedroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imageViewBedroom"
+        android:text="Bedroom" />
+
+
+    <ImageView
+        android:id="@+id/imageViewLivingRoom"
+        android:layout_width="250dp"
+        android:layout_height="171dp"
+        android:layout_below="@+id/textViewBedroom"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="81dp"
+        app:srcCompat="@drawable/sitting" />
+
+    <TextView
+        android:id="@+id/textViewSitting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageViewLivingRoom"
+        android:text="Living Room" />
+
+
+    <ImageView
+        android:id="@+id/imageViewKitchen"
+        android:layout_width="235dp"
+        android:layout_height="191dp"
+        android:layout_below="@+id/textViewSitting"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="96dp"
+        app:srcCompat="@drawable/kitchen" />
+
+    <TextView
+        android:id="@+id/textViewKitchen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imageViewKitchen"
+        android:text="Kitchen"/>
+
+
+    <Button
+        android:id="@+id/buttonCheckInventory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewKitchen"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="2dp"
+        android:text="Check Inventory" />
+</RelativeLayout>

@@ -69,6 +69,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     Dialog dialog;
     private String mDestination;
     private ImageButton logoutBtn;
+    OnMyDialogResult mDialogResult; // the callback
 
 
     // Dropdown Menu Items
@@ -209,7 +210,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
                 }else {
-                    openSummaryDialog();
+                    startActivity(new Intent(MapsActivity.this,Inventory.class));
                     bottomSheetDialog.dismiss();
                 }
             }
@@ -222,103 +223,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
-
-        //show bottomSheetDialog
         bottomSheetDialog.show();
     }
 
-    private void openSummaryDialog () {
 
-        // Open Summary Activity Dialog
-
-
-        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MapsActivity.this,R.style.AppBottomSheetDialogTheme);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
-            setWhiteNavigationBar(bottomSheetDialog);
-        }
-        bottomSheetDialog.setContentView(R.layout.confirm_order_dialog);
-        bottomSheetDialog.setCanceledOnTouchOutside(false);
-        bottomSheetDialog.show();
-
-        TextView mTextViewSelectedInventory  = bottomSheetDialog.findViewById(R.id.textViewSelectedInventory);
-        TextView mTextViewPrice = bottomSheetDialog.findViewById(R.id.textViewPrice);
-        TextView mTextViewDate = bottomSheetDialog.findViewById(R.id.textViewDate);
-        TextView mFinalPrice = bottomSheetDialog.findViewById(R.id.finalPriceTextView);
-        TextView mSelectedDestination = bottomSheetDialog.findViewById(R.id.textViewDestination);
-        Button mConfirmOrder = bottomSheetDialog.findViewById(R.id.ConfirmButton);
-        Button mCancelOrder = bottomSheetDialog.findViewById(R.id.ButtonCancelOrder);
-
-
-
-
-
-
-
-        mConfirmOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bottomSheetDialog.hide();
-                Button mSuccessOK = bottomSheetDialog.findViewById(R.id.buttonSuccess);
-                        Notification notification = new NotificationCompat.Builder(MapsActivity.this,App.CHANNEL_ID1)
-                        .setSmallIcon(R.drawable.sticker_check_outline)
-                        .setContentTitle("Order Placed")
-                        .setContentText("You just made a new Order. Click to view your Orders!")
-                        .setPriority(NotificationCompat.PRIORITY_HIGH)
-                        .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                        .build();
-
-                NotificationManagerCompat.notify(1,notification);
-                Dialog dialog= new Dialog(MapsActivity.this);
-                dialog.setContentView(R.layout.success_dialog);
-
-
-                dialog.show();
-
-            }
-
-
-        });
-
-
-
-        mTextViewSelectedInventory.setText(dialogResult);
-        mTextViewDate.setText(dateDialogResult);
-        mSelectedDestination.setText(mSearchValue.getText().toString().trim());
-
-
-
-        if (dialogResult == "One Bedroom"){
-
-            mTextViewPrice.setText("Kes 5,500");
-
-            finalPrice = String.valueOf((subPrice + 5500));
-            mFinalPrice.setText("Kes "+finalPrice);
-
-
-        }else if (dialogResult == "Studio"){
-
-            mTextViewPrice.setText("Kes 7,500");
-            finalPrice = String.valueOf((subPrice + 7500));
-            mFinalPrice.setText("Kes "+finalPrice);
-
-        }else if (dialogResult == "Two Bedroom"){
-
-            mTextViewPrice.setText("Kes 8,500");
-            finalPrice = String.valueOf((subPrice + 8500));
-            mFinalPrice.setText("Kes "+finalPrice);
-
-        }else if (dialogResult == "Other"){
-
-            mTextViewPrice.setText("Kes 9,500");
-            finalPrice = String.valueOf((subPrice + 9500));
-            mFinalPrice.setText("Kes "+finalPrice);
-
-        } else {
-            finalPrice = String.valueOf((subPrice + 3000));
-            mFinalPrice.setText("Kes "+finalPrice);
-        }
-
-    }
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -387,11 +295,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         startActivity(intent);
         finish();
     }
-
-
-
-
-    public void cancelOrder(View view) {
+    public void setDialogResult(OnMyDialogResult dialogResult){
+        mDialogResult = dialogResult;
     }
+
+    public interface OnMyDialogResult{
+        void finish(String result);
+    }
+
 
 }

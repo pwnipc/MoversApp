@@ -215,12 +215,4 @@
             app:layout_constraintStart_toEndOf="@+id/ButtonCancelOrder"
             app:layout_constraintTop_toBottomOf="@+id/finalPriceTextView" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="31dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="2dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/textViewSelectedInventory"
-            app:srcCompat="@drawable/vericle_line" />
 </androidx.constraintlayout.widget.ConstraintLayout>
