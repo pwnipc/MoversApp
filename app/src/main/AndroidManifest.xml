@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
+<<<<<<< HEAD
 
         <activity
             android:name=".Inventory"
@@ -24,6 +25,12 @@
         </activity>
 
         <activity
+=======
+        <activity
+            android:name=".SummaryActivity"
+            android:exported="false" />
+        <activity
+>>>>>>> 3c82cd0e8fa0384eda83eb8fad103a08c6fbbffa
             android:name=".LivingRoomActivity"
             android:exported="false" />
       
@@ -38,34 +45,59 @@
 
         <activity
             android:name=".CreateAccountActivity"
+<<<<<<< HEAD
             android:exported="false" />
 
 
+=======
+            android:exported="true">
+            android:name=".SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+>>>>>>> 3c82cd0e8fa0384eda83eb8fad103a08c6fbbffa
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
-
         <activity
             android:name=".LoginActivity"
+<<<<<<< HEAD
             android:exported="false">
       </activity>
 
+=======
+            android:exported="false" />
+>>>>>>> 3c82cd0e8fa0384eda83eb8fad103a08c6fbbffa
         <activity
             android:name=".MapsActivity"
             android:exported="false"></activity>
         <activity
             android:name=".BookingActivity"
+<<<<<<< HEAD
             android:exported="false">
         </activity>
+=======
+            android:exported="false"></activity>
+>>>>>>> 3c82cd0e8fa0384eda83eb8fad103a08c6fbbffa
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBvkWPOy49fuHFIpSSL4jpAeWmKz-pkvkQ" />
+<<<<<<< HEAD
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+=======
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+>>>>>>> 3c82cd0e8fa0384eda83eb8fad103a08c6fbbffa
     </application>
 
 </manifest>
