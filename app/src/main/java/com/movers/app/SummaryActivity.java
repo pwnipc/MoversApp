@@ -9,7 +9,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SummaryActivity extends AppCompatActivity {
+public class SummaryActivity extends AppCompatActivity  {
 
     String KitchenCost, BedroomCost, LivingRoomCost;
     int total;
@@ -23,13 +23,10 @@ public class SummaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_summary);
         ButterKnife.bind(this);
 
-
-
-
-        int KitchenCostInt = Integer.parseInt(KitchenCost);
-        int BedroomCostInt = Integer.parseInt(BedroomCost);
-        int LivingRoomCostInt = Integer.parseInt(LivingRoomCost);
-        total = KitchenCostInt +  BedroomCostInt +LivingRoomCostInt + CompanyCost;
-//        mTotalcostValue.setText("Ksh"+Integer.toString(total));
     }
+
+//    @Override
+//    public void sendData(int data) {
+//         mTotalcostValue.setText(data);
+//    }
 }
