@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
 
+
         <activity
             android:name=".Inventory"
             android:exported="false" />
@@ -23,7 +24,13 @@
             </intent-filter>
         </activity>
 
+
+
         <activity
+            android:name=".SummaryActivity"
+            android:exported="false" />
+        <activity
+
             android:name=".LivingRoomActivity"
             android:exported="false" />
       
@@ -40,27 +47,32 @@
             android:name=".CreateAccountActivity"
             android:exported="false" />
 
-
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
-
         <activity
             android:name=".LoginActivity"
-            android:exported="false">
-      </activity>
+            android:exported="false"/>
+
 
         <activity
             android:name=".MapsActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
+
         <activity
             android:name=".BookingActivity"
             android:exported="false">
         </activity>
 
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBvkWPOy49fuHFIpSSL4jpAeWmKz-pkvkQ" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
 
         <meta-data
             android:name="preloaded_fonts"

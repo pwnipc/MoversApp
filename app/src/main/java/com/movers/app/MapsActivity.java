@@ -60,16 +60,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     String place;
     EditText mSearchValue;
     List<Address> addressList;
-    private String dialogResult;
-    private String dateDialogResult;
+    private static String dialogResult;
+    private static String dateDialogResult;
     private final int kilometers = 20;
     private final  int rate = 30;
     private int subPrice = (rate * kilometers);
     private String finalPrice;
     Dialog dialog;
-    private String mDestination;
+    private static String mDestination;
     private ImageButton logoutBtn;
-    OnMyDialogResult mDialogResult; // the callback
+
 
 
     // Dropdown Menu Items
@@ -84,6 +84,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_maps);
 
         ButterKnife.bind(this);
+
         NotificationManagerCompat = NotificationManagerCompat.from(this);
 
 
@@ -124,14 +125,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
-
-
     }
 
-    /**
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera.
-     */
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
@@ -155,6 +150,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
             showBookingDialog();
+            mDestination = mSearchValue.getText().toString();
         }
 
     }
@@ -295,13 +291,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         startActivity(intent);
         finish();
     }
-    public void setDialogResult(OnMyDialogResult dialogResult){
-        mDialogResult = dialogResult;
+
+
+
+   public  static String getDestination(){
+        return mDestination;
     }
 
-    public interface OnMyDialogResult{
-        void finish(String result);
+    public  static String getDate(){
+        return dateDialogResult;
     }
 
+    public  static String getInventory(){
+        return dialogResult;
+    }
 
 }
