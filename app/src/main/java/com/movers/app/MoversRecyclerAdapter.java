@@ -1,6 +1,8 @@
 package com.movers.app;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 public class MoversRecyclerAdapter extends RecyclerView.Adapter<MoversRecyclerAdapter.ViewHolder> {
 
     private ArrayList<Mover> movers = new ArrayList<>();
+    Context mContext;
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -46,13 +49,25 @@ public class MoversRecyclerAdapter extends RecyclerView.Adapter<MoversRecyclerAd
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView txtName;
         TextView txtName2;
+        Button btnSelect;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            mContext = itemView.getContext();
             txtName = itemView.findViewById(R.id.txtName);
 
             txtName2 = itemView.findViewById(R.id.txtName2);
+
+            btnSelect = itemView.findViewById(R.id.buttonSelect);
+
+            btnSelect.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, MapsActivity.class);
+                    mContext.startActivity(intent);
+                }
+            });
         }
     }
 
