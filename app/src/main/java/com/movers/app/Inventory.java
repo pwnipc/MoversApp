@@ -157,7 +157,7 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
                         @Override
                         public void onClick(View v) {
                             alertDialog.dismiss();
-                            startActivity(new Intent(Inventory.this, MapsActivity.class));
+                            startActivity(new Intent(Inventory.this, MoversActivity.class));
                         }
                     });
 
