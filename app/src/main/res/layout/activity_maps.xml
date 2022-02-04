@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:background="@android:color/white"
             android:drawableRight="@drawable/search"
-            android:hint="Search Here"
+            android:hint="Enter new destination"
             android:maxLines="1"
             android:singleLine="true"
             android:padding="5dp"
