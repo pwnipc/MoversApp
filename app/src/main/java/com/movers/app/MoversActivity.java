@@ -25,6 +25,11 @@ public class MoversActivity extends AppCompatActivity {
         movers.add(new Mover("Alpha Movers Kenya","Home Relocation, International Relocation"));
         movers.add(new Mover("Access Movers", "Home Relocation"));
         movers.add(new Mover("Prestige Movers", "International Relocation"));
+        movers.add(new Mover("Amazon Movers", "Air Relocation"));
+        movers.add(new Mover("bolt Movers", "Local Relocation made possible"));
+        movers.add(new Mover("Swivl Movers", "Bulk Relocation"));
+        movers.add(new Mover("Kibana Movers", "Studio Relocation"));
+
 
         moversRecView = findViewById(R.id.moversRecView);
 
