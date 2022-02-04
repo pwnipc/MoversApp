@@ -1,0 +1,48 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="7dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+android:background="@color/lgray"
+        android:layout_marginBottom="10dp"
+        android:padding="20dp"
+        >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Name"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:id="@+id/txtName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:id="@+id/txtName2"
+        android:paddingBottom="20dp"
+        android:layout_below="@+id/txtName"
+
+        />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select"
+            android:background="@color/green"
+            android:layout_below="@id/txtName2"
+            android:layout_marginEnd="20dp"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
