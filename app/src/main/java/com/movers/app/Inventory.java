@@ -106,15 +106,18 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
 
                 showBookingDialog();
 
-//            if(LivingRoomCost != null && BedroomCost != null && KitchenCost != null){
-//                //To the summary activity
-//               openSummary();
-//                Toast.makeText(Inventory.this,"Still in Progress",Toast.LENGTH_LONG).show();
-//            }else{
-//                Toast.makeText(Inventory.this,"Please select inventory",Toast.LENGTH_LONG).show();
-//            }
-
         }
+    }
+
+    private void pushNotification(){
+        Notification notification = new NotificationCompat.Builder(Inventory.this,App.CHANNEL_ID1)
+                .setSmallIcon(R.drawable.sticker_check_outline)
+                .setContentTitle("Order Placed")
+                .setContentText("You just made a new Order. Click to view your Orders!")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+        NotificationManagerCompat.notify(1,notification);
     }
 
     private void showBookingDialog() {
@@ -152,6 +155,7 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
                 @Override
                 public void onClick(View v) {
                     bottomSheetDialog.dismiss();
+                    pushNotification();
                     AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Inventory.this);
                     LayoutInflater inflater = Inventory.this.getLayoutInflater();
                     View dialogView = inflater.inflate(R.layout.success_dialog, null);
@@ -163,14 +167,6 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
                         @Override
                         public void onClick(View v) {
                             alertDialog.dismiss();
-                            Notification notification = new NotificationCompat.Builder(Inventory.this,App.CHANNEL_ID1)
-                                    .setSmallIcon(R.drawable.sticker_check_outline)
-                                    .setContentTitle("Order Placed")
-                                    .setContentText("You just made a new Order. Click to view your Orders!")
-                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                                    .build();
-                            NotificationManagerCompat.notify(1,notification);
                             startActivity(new Intent(Inventory.this, MoversActivity.class));
                         }
                     });
