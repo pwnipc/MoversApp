@@ -3,7 +3,10 @@ package com.movers.app;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -42,6 +45,7 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
     private String subTotal;
     private  String mDate;
     private String mSelectedInventory;
+    private NotificationManagerCompat NotificationManagerCompat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,8 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
         mDestination =  MapsActivity.getDestination();
         mDate = MapsActivity.getDate();
         mSelectedInventory = MapsActivity.getInventory();
+        NotificationManagerCompat = NotificationManagerCompat.from(this);
+
 
 
         Intent intent = getIntent();
@@ -157,6 +163,14 @@ public class Inventory extends AppCompatActivity implements View.OnClickListener
                         @Override
                         public void onClick(View v) {
                             alertDialog.dismiss();
+                            Notification notification = new NotificationCompat.Builder(Inventory.this,App.CHANNEL_ID1)
+                                    .setSmallIcon(R.drawable.sticker_check_outline)
+                                    .setContentTitle("Order Placed")
+                                    .setContentText("You just made a new Order. Click to view your Orders!")
+                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                    .build();
+                            NotificationManagerCompat.notify(1,notification);
                             startActivity(new Intent(Inventory.this, MoversActivity.class));
                         }
                     });
