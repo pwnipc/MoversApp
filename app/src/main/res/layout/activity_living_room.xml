@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lgray"
+
+
+    tools:context=".LivingRoomActivity">
+
+    <ImageView
+        android:id="@+id/livingRoomImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/couch"
+        android:layout_marginLeft="80dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/livingRoomPromptTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please select the items in your living room:"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/yellow"
+        android:layout_marginLeft="30dp"
+
+        android:layout_below="@+id/livingRoomImageView"
+
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_below="@id/livingRoomPromptTextView"
+
+        >
+
+        <CheckBox
+            android:id="@+id/tvCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:checked="false"
+            android:padding="20dp"
+            android:text="Television"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/sofaCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:checked="false"
+            android:padding="20dp"
+            android:text="Sofa Set"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/tableCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:checked="false"
+            android:padding="20dp"
+            android:text="Table"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/wooferCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:checked="false"
+            android:padding="20dp"
+            android:text="Woofer"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/submitLivingRoomButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:background="@color/green"
+            android:backgroundTint="@color/green"
+            android:layout_marginLeft="45dp"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
