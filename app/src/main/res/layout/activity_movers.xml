@@ -10,8 +10,8 @@ android:padding="10dp">
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Please Choose a Moving Company:"
-
+    android:text="Choose a Moving Company:"
+    android:layout_centerHorizontal="true"
     android:id="@+id/title"
     android:textSize="20dp"
     android:textStyle="bold"

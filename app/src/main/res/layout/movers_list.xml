@@ -16,32 +16,35 @@ android:background="@color/lgray"
         >
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contact Name"
-        android:textStyle="bold"
-        android:textSize="16dp"
-        android:id="@+id/txtName" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Price"
-        android:id="@+id/txtName2"
-        android:paddingBottom="20dp"
-        android:layout_below="@+id/txtName"
-
-        />
-        <Button
+        <TextView
+            android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select"
-            android:background="@color/green"
-            android:layout_below="@id/txtName2"
-            android:layout_marginEnd="20dp"
             android:layout_centerHorizontal="true"
+            android:text="Contact Name"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtName2"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtName"
+            android:paddingBottom="20dp"
+            android:text="Price"
+
             />
+
+        <Button
+            android:id="@+id/buttonSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtName2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="20dp"
+            android:background="@color/green"
+            android:text="Enter Destination" />
 
     </RelativeLayout>
 
